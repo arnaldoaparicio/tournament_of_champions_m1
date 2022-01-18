@@ -3,3 +3,11 @@
 <p> Name of competition: <%= @competition.name %> </p>
 <p> Name of location: <%= @competition.location %> </p>
 <p> Name of sport: <%= @competition.sport %> </p>
+
+<h2>List of competition's teams with their hometowns</h2
+  <% @competition.teams.each do |team| %>
+    <p> Nickname: <%= team.nickname %>
+       Hometown: <%= team.hometown %></p>
+<% end %>
+
+<h2>Average age of all players in this competition: <%= @competition.average_age %> </h2>
