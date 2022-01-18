@@ -31,7 +31,6 @@ RSpec.describe 'Competition show page' do
 
   it 'has the list of competitions teams with their hometowns' do
     visit competition_path(@comp1)
-    save_and_open_page
     expect(page).to have_content(@team1.nickname)
     expect(page).to have_content(@team1.hometown)
     expect(page).to have_content(@team2.nickname)
@@ -46,9 +45,9 @@ RSpec.describe 'Competition show page' do
     expect(page).to have_content('Average age of all players in this competition: 31')
   end
 
- it 'links to a new page to register a new team' do
+  it 'links to a new page to register a new team' do
     visit competition_path(@comp1)
-    click_link "Register a new team"
-    expect(current_path).to 
- end
+    click_link "Register a new Team"
+    expect(current_path).to eq("/competitions/#{@comp1.id}/new")
+  end
 end
